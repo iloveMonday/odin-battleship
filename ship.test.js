@@ -18,6 +18,11 @@ test ('hit ship', () => {
 //     expect(boat).toMatchObject({"hits": 5, "length": 5, "sunk": true})
 // })
 
-test ('build board', () => {
-    expect(new Gameboard()).toMatchObject({"board": ["beep"]})
+
+
+const board = new Gameboard;
+board.receiveAttack(1,9)
+
+test ('hit board', () => {
+    expect(board.returnSpace(1,9)).toStrictEqual(["X"])
 })

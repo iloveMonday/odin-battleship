@@ -8,14 +8,20 @@ const Gameboard = class {
     for (let i = 0; i < 10; i++) {
       board.push([]);
       for (let j = 0; j < 10; j++) {
-        board.push([]);
+        board[i].push([]);
       }
-      return board;
     }
+    return board;
   }
+
+
 
 receiveAttack(x, y){
     this.board[x][y] = ["X"];
+}
+
+returnSpace(x,y){
+  return this.board[x][y];
 }
 
 

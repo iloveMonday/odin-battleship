@@ -3,6 +3,7 @@ const Ship = class {
       this.length = length;
       this.hits = 0;
       this.sunk = false;
+      // this.coordinates = [];
 
       return this;
     }
