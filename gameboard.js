@@ -1,29 +1,33 @@
-export default function gameboard(player) {
-  let board = buildBoard();
+export default function gameboardFactory(player) {
+  let gameboard = buildBoard();
 
   function buildBoard() {
-    let board = [];
+    let gameboard = [];
     for (let i = 0; i < 10; i++) {
-      board.push([]);
+      gameboard.push([]);
       for (let j = 0; j < 10; j++) {
-        board[i].push([]);
+        gameboard[i].push([]);
       }
     }
-    return board;
+    return gameboard;
+  }
+
+  function getGameboard(){
+    return gameboard;
   }
 
   function receiveAttack(x, y) {
-    board[x][y] = ["X"];
+    gameboard[x][y] = ["X"];
   }
 
   function returnSpace(x, y) {
-    return board[x][y];
+    return gameboard[x][y];
   }
 
 
   return{
     boardName: player,
-    // get isSunk() {return isSunk},
+    getGameboard,
     receiveAttack,
     returnSpace
   }

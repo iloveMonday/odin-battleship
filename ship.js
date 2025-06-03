@@ -1,5 +1,5 @@
 //factory function
-export default function ship(name, length, position){
+export default function shipFactory(name, length, position){
   let hitCounter = 0;
   let isSunk = false;
 
