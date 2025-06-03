@@ -1,9 +1,7 @@
-const Gameboard = class {
-  constructor() {
-    this.board = this.buildBoard();
-  }
+export default function gameboard(player) {
+  let board = buildBoard();
 
-  buildBoard() {
+  function buildBoard() {
     let board = [];
     for (let i = 0; i < 10; i++) {
       board.push([]);
@@ -14,22 +12,43 @@ const Gameboard = class {
     return board;
   }
 
+  function receiveAttack(x, y) {
+    board[x][y] = ["X"];
+  }
+
+  function returnSpace(x, y) {
+    return board[x][y];
+  }
 
 
-receiveAttack(x, y){
-    this.board[x][y] = ["X"];
+  return{
+    boardName: player,
+    // get isSunk() {return isSunk},
+    receiveAttack,
+    returnSpace
+  }
+
 }
 
-returnSpace(x,y){
-  return this.board[x][y];
-}
 
 
+
+
+const Gameboard = class {
+  constructor() {
+    this.board = this.buildBoard();
+  }
+
+  // receiveAttack(x, y){
+  //     this.board[x][y] = ["X"];
+  // }
+
+  // returnSpace(x,y){
+  //   return this.board[x][y];
+  // }
 };
 
-module.exports = Gameboard;
-
-
+// module.exports = Gameboard;
 
 // function buildGrid(size = 8) {
 //     let board = [];
